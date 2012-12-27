@@ -23,3 +23,4 @@ HISTÓRICO DE UPDATES (By Kamalcranio)
 + Licença creative commons/MIT adiquirida
 + Ajuste na detecção e adaptação das funções para sistemas operacionais diferentes (Windows/Linux)
 + Criação do blog (kamalcranio.wordpress.com) para as atualizações do jogo.
++ Correção na codificação Unicode para a versão do Windows, por enquanto as letras simplesmente não possuirão acentos.
