@@ -4,8 +4,11 @@ knights-adventure
 --------------------------------- KNIGHTS ADVENTURE ---------------------------------
 -------------------------------------------------------------------------------------
 Sumário:
+
  1 - Créditos e copyright
+ 
  2 - Instalação e configuração
+ 
 -------------------------------------------------------------------------------------
 ------------------------------- CRÉDITOS E COPYRIGHT --------------------------------
 -------------------------------------------------------------------------------------
@@ -14,9 +17,11 @@ LICENCA.txt no mesmo local de onde se encontra este documento.
 
 -------------------------------------------------------------------------------------
 ------------------------------- INSTALAÇÃO E CONFIGURAÇÃO ---------------------------
--------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 Caso você esteja usando:
+
+
 -LINUX
 Dê permissão e execute o programa unixInstall.sh (Recomendado executar como administrador)
 Ele compilará, configurará e, se necessário, instalará as dependências necessárias para o
@@ -32,4 +37,5 @@ CD) e digite lua <versão do jogo>Win32. (W maiúsculo).
 
 
 EQUIPE KCR (Sheffield, Inglaterra)
+
 EQUIPE DE PROGRAMAÇÃO LUA (PUC Rio, Brasil)
