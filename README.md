@@ -1,18 +1,5 @@
 knights-adventure
 =================
-------------------------------------------------------------------------------------
-KKKKKKKKKK        KKKKKK        CCCCCCCCCCCCCCCCCCCCCC     RRRRRRRRRRRRRRRRRRRRRRR
-KKKKKKKKKK       KKKKKK         CCCCCCCCCCCCCCCCCCCCCC     RRRRRRRRRRRRRRRRRRRRRRR
-KKKKKKKKKK      KKKKKK          CCCCCCCCCCCCCCCCCCCCCC     RRRRRRRRRRRRRRRRRRRRRRR
-KKKKKKKKKK     KKKKKK           CCCCCCCC                   RRRRRRRRR         RRRRR
-KKKKKKKKKKKKKKKKKKK             CCCCCCCC                   RRRRRRRRR         RRRRR
-KKKKKKKKKKKKKKKKKK              CCCCCCCC                   RRRRRRRRRRRRRRRRRRRRRRR
-KKKKKKKKKKKKKKKKKKK             CCCCCCCC                   RRRRRRRRRRRRRRRRRRRRRRR
-KKKKKKKKKK   KKKKKKK            CCCCCCCC                   RRRRRRRRRRRRRRRRRRRRRRR
-KKKKKKKKKK    KKKKKKK           CCCCCCCC                   RRRRRRRRR      RRRRRR
-KKKKKKKKKK     KKKKKKK          CCCCCCCCCCCCCCCCCCCCCC     RRRRRRRRR       RRRRRR
-KKKKKKKKKK      KKKKKKK         CCCCCCCCCCCCCCCCCCCCCC     RRRRRRRRR        RRRRRR
-KKKKKKKKKK       KKKKKKK        CCCCCCCCCCCCCCCCCCCCCC     RRRRRRRRR         RRRRRRR
 -------------------------------------------------------------------------------------
 --------------------------------- KNIGHTS ADVENTURE ---------------------------------
 -------------------------------------------------------------------------------------
@@ -24,6 +11,10 @@ Sumário:
 -------------------------------------------------------------------------------------
 Para ler sobre os termos de licensa de uso (MIT, GPL, LGPL, CC), leia o documento
 LICENCA.txt no mesmo local de onde se encontra este documento.
+
+-------------------------------------------------------------------------------------
+------------------------------- INSTALAÇÃO E CONFIGURAÇÃO ---------------------------
+-------------------------------------------------------------------------------------
 
 Caso você esteja usando:
 -LINUX
