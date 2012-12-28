@@ -40,7 +40,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 Por parte de Kamalcranio:
 
-A licença sobre cópia, modificação e outros está sob os termos da Creative Commons (a licença pode ser encontrada no site kamalcranio.wordpress.com), enquanto que o termo sobre o software está sob os termos MIT da OSI (Open Source Initiative):
+A licença sobre cópia, modificação e outros está sob os termos da Creative Commons (a licença pode ser encontrada no site http://kamalcranio.wordpress.com), enquanto que o termo sobre o software está sob os termos MIT da OSI (Open Source Initiative):
 
 Copyright © 2012 KCR, Sheffield - Inglaterra
 
