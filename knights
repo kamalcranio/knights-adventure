@@ -1,4 +1,4 @@
--- knights-adventure Linux pre-compiled code
+-- knights-adventure Linux launcher
 -- A permissão é garantida, livre de custo, para qualquer pessoa que obtenha uma cópia deste software e os documentos
 -- associados ao mesmo (o "Software"), com o poder de usar, modificar, retirar partes do código para
 --futuros softwares, publicar, distribuir, sublicenciar, e/ou vender cópias do Software, e permitir à indivíduos
@@ -11,21 +11,22 @@
 -- DONOS DOS DIREITOS DO SOFTWARE DEVEM SER PUNIDOS POR QUALQUER CULPA, DANOS OU OUTRAS RAZÕES DECORRENTES DO
 -- SOFTWARE DESCRITO.
 
+
 do
 function tempoEspera(i)
-  local tempoFinal = os.time() + i
+	local tempoFinal = os.time() + i
 	while os.time() <= tempoFinal do end
 end
 
 function engineStartUp() -- FUNÇÃO DE INÍCIO
 	screenClear = "clear" -- CLS para win32/64 e CLEAR para unix
-	version = "0.0.3a"
+	version = "0.0.5a"
 	title = "The knights adventure " .. version .. " - By Kamalcranio"
 	SuaVida = 3000
 	VidaInimigo = 3000
-	SuaMana = 500
+	SuaMana = 1000
 	local Rodada = 0
-	inicio()
+	decideInimigo()
 end
 
 function inicio()
@@ -84,42 +85,43 @@ function magia()
 	os.execute(screenClear)
 	print (title)
 	print ("Qual o tipo de magia você quer usar?")
-	print ("heal - recupera até 100HP - Custa 50MP")
-	print ("gran heal - Recupera até 300HP - Custa 150MP")
-	print ("fire - Ataca com fogo - Custa 100MP")
-	print ("plasma - Ataca com eletrcidade - Custa 200MP")
+	print ("heal - recupera até 400HP - Custa 200MP")
+	print ("gran heal - Recupera até 600HP - Custa 350MP")
+	print ("fire - Ataca com fogo - Custa 300MP")
+	print ("plasma - Ataca com eletrcidade - Custa 400MP")
+	print ("water strike - Ataca com água - Custa 350MP")
 	print ("Digite v para voltar")
 	io.output():write("Qual magia você vai usar? ")
 	local Magia = io.input():read()
 	if Magia == "heal" then
-		if SuaMana >= 50 then
+		if SuaMana >= 200 then
 			magiaHeal()
-		elseif SuaMana < 50 then
+		elseif SuaMana < 200 then
 			print ("Você não tem mana suficiente para executar essa magia!")
 			tempoEspera(3)
 			inicio()
 		end
 	elseif Magia == "gran heal" then
-		if SuaMana >= 150 then
+		if SuaMana >= 350 then
 			magiaGranHeal()
-		elseif SuaMana < 150 then
+		elseif SuaMana < 350 then
 			print ("Você não tem mana suficiente para executar essa magia!")
 			tempoEspera(3)
 			inicio()
 		end
 	elseif Magia == "fire" then
-		if SuaMana >= 100 then
+		if SuaMana >= 300 then
 			magiaFire()
-		elseif SuaMana < 100 then
+		elseif SuaMana < 300 then
 			print ("Você não tem mana suficiente para executar essa magia!")
 			tempoEspera(3)
 			inicio()
 		end
 	
 	elseif Magia == "plasma" then
-		if SuaMana >= 200 then
+		if SuaMana >= 400 then
 			magiaPlasma()
-		elseif SuaMana < 200 then
+		elseif SuaMana < 400 then
 			print ("Você não tem mana suficiente para executar essa magia!")
 			tempoEspera(3)
 			inicio()
@@ -127,12 +129,22 @@ function magia()
 	
 	elseif Magia == "v" then
 	inicio()
+	elseif Magia == "water strike" then
+		if SuaMana >= 350 then
+			magiaWaterStrike()
+		elseif SuaMana < 350 then
+			print ("Você não tem mana suficiente para executar essa magia!")
+			tempoEspera(3)
+			inicio()
+		end
 	elseif Magia ~= "heal" then
 		if Magia ~= "gran heal" then
 			if Magia ~= "fire" then
 				if Magia ~= "plasma" then
 					if Magia ~= "v" then
-					 magia()
+						if Magia ~= "water strike" then
+					 		magia()
+						end
 					end
 				end
 			end
@@ -142,26 +154,133 @@ end
 
 function espadaEnfia()
 	os.execute(screenClear)
+	if espadaPrendeu == true then
+		if espadaPresaTurno >= 3 then
+			print ("Você puxou a espada...")
+			tempoEspera(2)
+			io.output():write(" E a arrancou do inimigo!")
+			espadaPrendeu = false
+			tempoEspera(3)
+			espadaEnfia()
+		end
+		espadaPresaTurno = espadaPresaTurno + 1
+		print ("Você puxou a espada...")
+		tempoEspera(2)
+		io.output():write(" Mas ela não saiu do lugar!")
+		tempoEspera(2)
+		ataqueInimigo()
+	end
 	print ("Você está atacando!")
 	tempoEspera(3)
-	danoVoceInimigo = math.random(500, 750)
+	if variavelInimigo == "agua" then
+		danoVoceInimigo = math.random(10, 50)
+	elseif variavelInimigo == "fogo" then
+		danoVoceInimigo = math.random(3, 20)
+	elseif variavelInimigo == "madeira" then
+		danoVoceInimigo = math.random(50, 100)
+		espadaPresa = math.random(1, 5)
+	elseif variavelInimigo == "humano" then
+		danoVoceInimigo = math.random(250, 525)
+	elseif variavelInimigo == "fantasma" then
+		print ("Azar, colega, você não pode acertar um fantasma!")
+		tempoEspera(4)
+		ataqueInimigo()
+	end
+	chancesAcerto = math.random(1, 3)
+	if chancesAcerto == 3 then
+		print ("Você errou!")
+		tempoEspera(2)
+		ataqueInimigo()
+	end
 	VidaInimigo = VidaInimigo - danoVoceInimigo
 	os.execute(screenClear)
 	print ("Você acertou o inimigo e tirou " .. danoVoceInimigo .. "HP de dano!")
 	print ("Agora ele possui " .. VidaInimigo .. "HP!")
+	if espadaPresa == 5 then
+	print ("Mas a sua espada ficou presa! Você não pode usá-la por enquanto!")
+	espadaPrendeu = true
+	espadaPresaTurno = 0
+	end
 	tempoEspera(2)
 	ataqueInimigo()
 end
 
+function magiaWaterStrike()
+	os.execute(screenClear)
+	print ("Você está atacando com a magia!")
+	tempoEspera(3)
+	SuaMana = SuaMana - 350
+	if variavelInimigo == "agua" then
+		danoVoceInimigo = math.random(-500, -200)
+		VidaInimigo = VidaInimigo - danoVoceInimigo
+		print ("Você aumentou a vida dele!")
+		print ("Agora ele possui " .. VidaInimigo .. "HP!")
+		tempoEspera(4)
+		ataqueInimigo()
+	elseif variavelInimigo == "fogo" then
+		danoVoceInimigo = math.random(400, 750)
+	elseif variavelInimigo == "madeira" then
+		danoVoceInimigo = math.random(50, 150)
+	elseif variavelInimigo == "humano" then
+		danoVoceInimigo = math.random(100, 275)
+	elseif variavelInimigo == "fantasma" then
+		danoVoceInimigo = math.random(40, 200)
+	end
+	print ("Você acertou o inimigo e tirou " .. danoVoceInimigo .. "HP dele!")
+	print ("Agora ele possui " .. danoVoceInimigo .. "HP!")
+	tempoEspera(3)
+	ataqueInimigo()
+end
+
 function espadaCorte()
-	os.execute(screenClear)	-- Centésima linha XD
+	os.execute(screenClear)
+	if espadaPrendeu == true then
+		if espadaPresaTurno >= 3 then
+			print ("Você puxou a espada...")
+			tempoEspera(2)
+			io.output():write(" E a arrancou do inimigo!")
+			espadaPrendeu = false
+			tempoEspera(3)
+			espadaEnfia()
+		end
+		espadaPresaTurno = espadaPresaTurno + 1
+		print ("Você puxou a espada...")
+		tempoEspera(2)
+		io.output():write(" Mas ela não saiu do lugar!")
+		tempoEspera(2)
+		ataqueInimigo()
+	end
 	print ("Você está atacando!")
 	tempoEspera(3)
-	danoVoceInimigo = math.random(200, 450)
+	if variavelInimigo == "agua" then
+		danoVoceInimigo = math.random(30, 80)
+	elseif variavelInimigo == "fogo" then
+		danoVoceInimigo = math.random(0, 10)
+	elseif variavelInimigo == "madeira" then
+		danoVoceInimigo = math.random(100, 200)
+		espadaPresa = math.random(1, 10)
+	elseif variavelInimigo == "humano" then
+		danoVoceInimigo = math.random(150, 450)
+	elseif variavelInimigo == "fantasma" then
+		print ("Azar, colega, você não pode acertar um fantasma!")
+		tempoEspera(4)
+		ataqueInimigo()
+	end
+	chancesAcerto = math.random(1, 100)
+	if chancesAcerto >= 88 then
+		print ("Você errou!")
+		tempoEspera(2)
+		ataqueInimigo()
+	end
 	VidaInimigo = VidaInimigo - danoVoceInimigo
 	os.execute(screenClear)
 	print ("Você acertou o inimigo e tirou " .. danoVoceInimigo .. "HP de dano!")
 	print ("Agora ele possui " .. VidaInimigo .. "HP!")
+	if espadaPresa == 10 then
+		print ("Mas a sua espada ficou presa! Você não pode usá-la por enquanto!")
+		espadaPrendeu = true
+		espadaPresaTurno = 0
+	end
 	tempoEspera(2)
 	ataqueInimigo()
 end
@@ -170,8 +289,8 @@ function magiaHeal()
 	os.execute(screenClear)
 	print ("Você está fazendo a magia!")
 	tempoEspera(3)
-	SuaMana = SuaMana - 50
-	vidaRecuperada = math.random(30, 100)
+	SuaMana = SuaMana - 200
+	vidaRecuperada = math.random(200, 400)
 	SuaVida = SuaVida + vidaRecuperada
 	os.execute(screenClear)
 	print ("Você recuperou " .. vidaRecuperada .. "HP!")
@@ -184,8 +303,8 @@ function magiaGranHeal()
 	os.execute(screenClear)
 	print ("Você está fazendo a magia!")
 	tempoEspera(3)	
-	SuaMana = SuaMana - 150
-	vidaRecuperada = math.random(50, 300)
+	SuaMana = SuaMana - 350
+	vidaRecuperada = math.random(400, 600)
 	SuaVida = SuaVida + vidaRecuperada
 	os.execute(screenClear)
 	print ("Você recuperou " .. vidaRecuperada .. "HP!")
@@ -198,8 +317,23 @@ function magiaFire()
 	os.execute(screenClear)
 	print ("Você está atancando com a magia!")
 	tempoEspera(3)
-	SuaMana = SuaMana - 100
-	danoVoceInimigo = math.random(300, 500)
+	SuaMana = SuaMana - 300
+	if variavelInimigo == "agua" then
+		danoVoceInimigo = math.random(0, 5)
+	elseif variavelInimigo == "fogo" then
+		danoVoceInimigo = math.random(-500, -200)
+		VidaInimigo = VidaInimigo - danoVoceInimigo
+		print ("Você aumentou a vida dele!")
+		print ("Agora ele possui " .. VidaInimigo .. "HP!")
+		tempoEspera(4)
+		ataqueInimigo()
+	elseif vairavelInimigo == "madeira" then
+		danoVoceInimigo = math.random(300, 600)
+	elseif variavelInimigo == "humano" then
+		danoVoceInimigo = math.random(200, 350)
+	elseif variavelInimigo == "fantasma" then
+		danoVoceInimigo = math.random(150, 400)
+	end
 	VidaInimigo = VidaInimigo - danoVoceInimigo
 	os.execute(screenClear)
 	print ("Você tirou " .. danoVoceInimigo .. "HP de dano!")
@@ -212,14 +346,25 @@ function magiaPlasma()
 	os.execute(screenClear)
 	print ("Você está fazendo a magia!")
 	tempoEspera(3)
-	SuaMana = SuaMana - 200
-	danoVoceInimigo = math.random(300, 700)
+	SuaMana = SuaMana - 400
+	if variavelInimigo == "agua" then
+		danoVoceInimigo = math.random(300, 600)
+		eletrificaAgua = math.random(1, 5)
+	elseif variavelInimigo == "fogo" then
+		danoVoceInimigo = 0
+	elseif variavelInimigo == "madeira" then
+		danoVoceInimigo = math.random(100, 150)
+	elseif variavelInimigo == "humano" then
+		danoVoceInimigo = math.random(300, 500)
+		paralisaTF = math.random(1, 4)
+	elseif variavelInimigo == "fantasma" then
+		danoVoceInimigo = math.random(200, 300)
+	end
 	VidaInimigo = VidaInimigo - danoVoceInimigo
 	os.execute(screenClear)
 	print ("Você tirou " .. danoVoceInimigo .. "HP de dano!")
 	print ("Agora ele possui " .. VidaInimigo .. "HP de vida!")
 	tempoEspera(2)
-	local paralisaTF = math.random(1, 4)
 	if paralisaTF == 4 then
 		rodadasParalisadas = 0
 		print ("O inimigo está paralisado com a eletrecidade!")
@@ -248,7 +393,7 @@ function ataqueInimigo()
 			inimigoFisico()
 		else
 			inimigoMagia()
-		end
+			end
 	else
 		inimigoFisico()
 	end
@@ -290,7 +435,7 @@ turno()
 end
 
 function turno()
-	SuaMana = SuaMana + 25
+	SuaMana = SuaMana + 75
 	inicio()
 end
 
@@ -305,7 +450,13 @@ function vitoria()
 	print ("Créditos:")
 	print ("Código: Kamalcranio")
 	print ("----------------------------------")
-	io.input():read()
+	print ("Digite S para jogar novamente, ou digite N para sair")
+	novamente = io.input():read()
+	if novamente == "s" then
+		engineStartUp()
+	elseif novamente == "n" then
+		os.exit()
+	end
 	os.exit()
 end
 
@@ -321,9 +472,45 @@ function derrota()
 	print ("Créditos:")
 	print ("Código: Kamalcranio")
 	print ("-----------------------------------")
-	io.input():read()
+	print ("Digite S para jogar novamente, ou digite N para sair")
+	novamente = io.input():read()
+	if novamente == "s" then
+		engineStartUp()
+	elseif novamente == "n" then
+		os.exit()
+	end
 	os.exit()
 end
-	
+
+function decideInimigo()
+	os.execute(screenClear)
+	print (title)
+	print ("Andando, tranquilamente... quando")
+	tempoEspera(2)
+	print ("VOOOOOOSH!")
+	tipoDoInimigo = math.random(1, 4)
+	if tipoDoInimigo == 1 then
+		NomeInimigo = "água"
+		variavelInimigo = "agua"
+	elseif tipoDoInimigo == 2 then
+		NomeInimigo = "fogo"
+		variavelInimigo = "fogo"
+	elseif tipoDoInimigo == 3 then
+		NomeInimigo = "madeira"
+		variavelInimigo = "madeira"
+	elseif tipoDoInimigo == 4 then
+		nomeInimigo = "humano"
+		variavelInimigo = "humano"
+--	elseif tipoDoInimigo == 5 then
+--		nomeInimigo = "fantasma"
+--		variavelInimigo = "fantasma"
+	end
+	print ("Um inimigo tipo " .. nomeInimigo .. " apareceu!")
+	tempoEspera(3)
+	print ("Aperte ENTER para começar a batalha!")
+	io.input():read()
+	inicio()
+end
+
 engineStartUp()
 end
