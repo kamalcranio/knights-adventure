@@ -12,7 +12,7 @@
 # DONOS DOS DIREITOS DO SOFTWARE DEVEM SER PUNIDOS POR QUALQUER CULPA, DANOS OU OUTRAS RAZÕES DECORRENTES DO
 # SOFTWARE DESCRITO.
 
-ver=0.0.3a
+ver=0.0.5a
 inicio() {
 echo "---------------------------------------------------------------------"
 echo "Knights adventure 0.0.3a LAUNCHER 0.1"
