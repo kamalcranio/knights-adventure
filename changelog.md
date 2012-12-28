@@ -24,3 +24,16 @@ HISTÓRICO DE UPDATES (By Kamalcranio)
 + Ajuste na detecção e adaptação das funções para sistemas operacionais diferentes (Windows/Linux)
 + Criação do blog (kamalcranio.wordpress.com) para as atualizações do jogo.
 + Correção na codificação Unicode para a versão do Windows, por enquanto as letras simplesmente não possuirão acentos.
+
+-0.0.5a
++ Adicionado 3 novos tipos de monstros, no total agora são:
+	+ Água
+	+ Fogo
+	+ Madeira
+	+ Humano
+Cada tipo reage de forma diferente à cada ataque.
++ Nova magia: Water Strike
++ Chances de erro no ataque com a espada:
+	+ Estocar: 33% de chances de erro
+	+ Cortar: 2% de chances de erro
++ Chances de prender a espada em inimigos tipo madeira, se isso acontecer, Você deverá puxar ela três vezes (Usando o comando Cortar ou Enfiar) para retirá-la.
