@@ -1,4 +1,5 @@
 #!/bin/bash
+# knights-adventure Linux easy-way compiler
 # A permissão é garantida, livre de custo, para qualquer pessoa que obtenha uma cópia deste software e os
 # documentos associados ao mesmo (o "Software"), com o poder de usar, modificar, retirar partes do
 # código para futuros softwares, publicar, distribuir, sublicenciar, e/ou vender cópias do Software, e
