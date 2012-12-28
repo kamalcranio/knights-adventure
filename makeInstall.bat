@@ -37,8 +37,8 @@ title %titulo%
 	echo %titulo%
 	title %titulo% - 50%
 	echo Compilando arquivos...
-	luac -o 0.0.3aWin32 knightswin32
-	luac -o 0.0.3a knights
+	luac -o 0.0.5aWin32 knightswin32
+	luac -o 0.0.5a knights
 	goto:pronto
 
 :pronto
