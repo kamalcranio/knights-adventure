@@ -1,7 +1,9 @@
+REM knights-adventure windows launcher
+
 REM A permissão é garantida, livre de custo, para qualquer pessoa que obtenha uma cópia deste software
 REM e os documentos associados ao mesmo (o "Software"), com o poder de usar, modificar, retirar partes do código
 REM para futuros softwares, publicar, distribuir, sublicenciar, e/ou vender cópias do Software, e permitir à
-REMindivíduos por quem o software está sendo fornecido para tal.
+REM indivíduos por quem o software está sendo fornecido para tal.
 
 REM Os termos acima e os comunicados a seguir deverão se encontrar em qualquer cópia ou parte substancial do Software.
 
