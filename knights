@@ -26,6 +26,11 @@ function engineStartUp() -- FUNÇÃO DE INÍCIO
 	VidaInimigo = 3000
 	SuaMana = 1000
 	local Rodada = 0
+	tipoDoInimigo = nil
+	print ("KCRG Engine... Starting Up.")
+	print (math.randomseed(os.time()))
+	print ("KCR Team. Sheffield, England.")
+	tempoEspera(3)
 	decideInimigo()
 end
 
@@ -327,7 +332,7 @@ function magiaFire()
 		print ("Agora ele possui " .. VidaInimigo .. "HP!")
 		tempoEspera(4)
 		ataqueInimigo()
-	elseif vairavelInimigo == "madeira" then
+	elseif variavelInimigo == "madeira" then
 		danoVoceInimigo = math.random(300, 600)
 	elseif variavelInimigo == "humano" then
 		danoVoceInimigo = math.random(200, 350)
@@ -485,27 +490,35 @@ end
 function decideInimigo()
 	os.execute(screenClear)
 	print (title)
+	tipoDoInimigo = nil
 	print ("Andando, tranquilamente... quando")
-	tempoEspera(2)
 	print ("VOOOOOOSH!")
-	tipoDoInimigo = math.random(1, 4)
-	if tipoDoInimigo == 1 then
-		NomeInimigo = "água"
-		variavelInimigo = "agua"
-	elseif tipoDoInimigo == 2 then
-		NomeInimigo = "fogo"
-		variavelInimigo = "fogo"
-	elseif tipoDoInimigo == 3 then
-		NomeInimigo = "madeira"
-		variavelInimigo = "madeira"
-	elseif tipoDoInimigo == 4 then
-		nomeInimigo = "humano"
-		variavelInimigo = "humano"
---	elseif tipoDoInimigo == 5 then
---		nomeInimigo = "fantasma"
---		variavelInimigo = "fantasma"
-	end
-	print ("Um inimigo tipo " .. nomeInimigo .. " apareceu!")
+	local tipoDoInimigo = math.random(1, 4)
+		if tipoDoInimigo == 2 then
+			variavelInimigo = "agua"
+			NomeInimigo = "água"
+			printInimigo()
+		elseif tipoDoInimigo == 4 then
+			variavelInimigo = "fogo"
+			NomeInimigo = "fogo"
+			printInimigo()
+		elseif tipoDoInimigo <= 3 then
+			variavelInimigo = "madeira"
+			NomeInimigo = "madeira"
+			printInimigo()
+		elseif tipoDoInimigo <= 1 then
+			variavelInimigo = "humano"
+			NomeInimigo = "humano"
+			printInimigo()
+		end
+		if NomeInimigo == nil then
+			decideInimigo()
+		end
+	printInimigo()
+end
+
+function printInimigo()
+	print ("Um inimigo tipo " .. NomeInimigo .. " apareceu!")
 	tempoEspera(3)
 	print ("Aperte ENTER para começar a batalha!")
 	io.input():read()
