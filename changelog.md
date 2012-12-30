@@ -37,3 +37,8 @@ Cada tipo reage de forma diferente à cada ataque.
 	+ Estocar: 33% de chances de erro
 	+ Cortar: 2% de chances de erro
 + Chances de prender a espada em inimigos tipo madeira, se isso acontecer, Você deverá puxar ela três vezes (Usando o comando Cortar ou Enfiar) para retirá-la.
+
+-0.0.6a
++ Bugfixes:
+	+ Glitch do sistema aleatório para escolha dos monstros resolvido. Agora a KCRGE vai iniciar e iniciar um trash load antes do jogo iniciar
+	+ Erro no comunicado de vida do inimigo
