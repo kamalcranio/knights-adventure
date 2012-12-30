@@ -20,7 +20,7 @@ end
 
 function engineStartUp() -- FUNÇÃO DE INÍCIO
 	screenClear = "clear" -- CLS para win32/64 e CLEAR para unix
-	version = "0.0.5a"
+	version = "0.0.6a"
 	title = "The knights adventure " .. version .. " - By Kamalcranio"
 	SuaVida = 3000
 	VidaInimigo = 3000
@@ -30,6 +30,10 @@ function engineStartUp() -- FUNÇÃO DE INÍCIO
 	print ("KCRG Engine... Starting Up.")
 	print (math.randomseed(os.time()))
 	print ("KCR Team. Sheffield, England.")
+	print ("Configuring number dump...")
+	print (math.random(100))
+	print (math.random(1000))
+	print (math.random(10000))
 	tempoEspera(3)
 	decideInimigo()
 end
