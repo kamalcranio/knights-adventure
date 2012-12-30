@@ -235,7 +235,7 @@ function magiaWaterStrike()
 		danoVoceInimigo = math.random(40, 200)
 	end
 	print ("Você acertou o inimigo e tirou " .. danoVoceInimigo .. "HP dele!")
-	print ("Agora ele possui " .. danoVoceInimigo .. "HP!")
+	print ("Agora ele possui " .. VidaInimigo .. "HP!")
 	tempoEspera(3)
 	ataqueInimigo()
 end
