@@ -23,6 +23,7 @@ me enviem um e-mail (kamalcranio@gmail.com) favoritem este repositório e colabo
 Neste momento precisamos de
 + Programadores (Que entendam de LUA, ou que queiram aprender)
 + Game-testers
+
 Espero que continue conosco!
 
 (EN)
@@ -34,6 +35,7 @@ or send me an e-mail (kamalcranio@gmail.com), give the project a star and collab
 At this moment, we need:
 + Programmers (Who knows the LUA language, or wants to learn it.)
 + Game-testers
+
 I hope you keep with us!
 
 --------------------------------------------------------------------------------------
