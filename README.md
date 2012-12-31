@@ -13,16 +13,28 @@ Sumário:
 -------------------------------------- O QUE É --------------------------------------
 -------------------------------------------------------------------------------------
 
-Knights adventure é um (esboço de um) jogo escrito por mim (kamalcranio) que usa a fácil e simples linguagem lua.
+(PT)
+
+Knights adventure é um (esboço de um) jogo de aventura em texto escrito por mim (kamalcranio) que usa a fácil e simples linguagem lua.
 O jogo ainda está nos seus primeiros passos (de fato, na versão alpha) mas ainda pretendo adicionar várias coisas
 para que o jogo fique melhor e melhor :)
 Todos, brasileiros ou estrangeiros que quiserem ajudar no projeto, acessem http://www.kamalcranio.wordpress.com, ou
 me enviem um e-mail (kamalcranio@gmail.com) favoritem este repositório e colaborem com o projeto!
 Neste momento precisamos de
-+ Programadores GUI
++ Programadores (Que entendam de LUA, ou que queiram aprender)
 + Game-testers
-+ Artistas digitais, para que possamos transferir a maneira de jogar, de text-based para GUI gameplay,
 Espero que continue conosco!
+
+(EN)
+Knights adventure is a (sketch of a) text-based adventure game wrote by me (kamalcranio) which uses the easy and simple
+LUA language. The game is on it's first steps (in fact, it is on alpha phase, yet.) but i want to add a lot of things to
+make the game even better :)
+All the people, brazilians or foreigners, who want to help with the project, go to http://www.kamalcranio.wordpress.com, 
+or send me an e-mail (kamalcranio@gmail.com), give the project a star and collaborate!
+At this moment, we need:
++ Programmers (Who knows the LUA language, or wants to learn it.)
++ Game-testers
+I hope you keep with us!
 
 --------------------------------------------------------------------------------------
 ------------------------------------ COPYRIGHT ---------------------------------------
