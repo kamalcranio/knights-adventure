@@ -13,13 +13,13 @@ REM OU DONOS DOS DIREITOS DO SOFTWARE DEVEM SER PUNIDOS POR QUALQUER CULPA, DANO
 REM DO SOFTWARE DESCRITO.
 
 @echo off
-set versao = 0.0.5aWin32
+set versao = 0.0.6aWin32
 if exist "%versao%.*" (goto:existe)
 if not exist "%versao%.*" (goto:naoexiste)
 
 :existe
 echo Knights adventure ver. %versao% LAUNCHER
-lua 0.0.5aWin32
+lua 0.0.6aWin32
 pause
 exit
 
