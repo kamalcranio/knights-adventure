@@ -11,14 +11,14 @@
 # DE MERCADO, RE-FORMAÇÃO PARA ALGUM PROPÓSITO EM PARTICULAR E NÃO INFRIGIMENTO. EM NENHUM MOMENTO OS AUTORES
 # OU DONOS DOS DIREITOS DO SOFTWARE DEVEM SER PUNIDOS POR QUALQUER CULPA, DANOS OU OUTRAS RAZÕES DECORRENTES
 # DO SOFTWARE DESCRITO.
-ver="0.0.5a"
+ver="0.0.6a"
 file="knights"
 luaver="5.2"
 
 inicio() {
   clear
 	echo "-------------------------------------------------------"
-	echo "-----KNIGHTS ADVENTURE 0.0.3a--------------------------"
+	echo "-----KNIGHTS ADVENTURE $ver--------------------------"
 	echo "-------------------------------------------------------"
 	echo "Este programa vai compilar e configurar"
 	echo "o Knights adventure para o seu sistema"
