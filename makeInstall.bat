@@ -13,7 +13,7 @@ REM OU DONOS DOS DIREITOS DO SOFTWARE DEVEM SER PUNIDOS POR QUALQUER CULPA, DANO
 REM DO SOFTWARE DESCRITO.
 
 @echo off
-set titulo=KNIGHTS ADVENTURE 0.0.3a - INSTALADOR VER 0.5a - By Kamalcranio
+set titulo=KNIGHTS ADVENTURE 0.0.6a - INSTALADOR VER 0.5a - By Kamalcranio
 title %titulo%
 
 :inicio
@@ -37,8 +37,8 @@ title %titulo%
 	echo %titulo%
 	title %titulo% - 50%
 	echo Compilando arquivos...
-	luac -o 0.0.5aWin32 knightswin32
-	luac -o 0.0.5a knights
+	luac -o 0.0.6aWin32 knightswin32
+	luac -o 0.0.6a knights
 	goto:pronto
 
 :pronto
