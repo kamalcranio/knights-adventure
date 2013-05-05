@@ -1,36 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Knights-adventure : Brand new code RPG... Soo much more to come. It's programmed in Lua, an easy and light programming code." />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Knights-adventure by kamalcranio</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Knights-adventure</title>
   </head>
-
   <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/kamalcranio/knights-adventure">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/kamalcranio/knights-adventure/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/kamalcranio/knights-adventure/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/kamalcranio/knights-adventure">View on GitHub</a>
+    <div class="wrapper">
 
-          <h1 id="project_title">Knights Adventure</h1>
-          <h2 id="project_tagline">Um novo rpg em código. Ainda faltando muito até o final. O jogo usa linguagem de programação LUA, leve, simples e descomplicada.</h2>
+      <section>
+        <div id="title">
+          <h1>Knights-adventure</h1>
+          <p>Brand new code RPG... Soo much more to come. It's programmed in Lua, an easy and light programming code.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/kamalcranio">kamalcranio</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></span>
+        </div>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/kamalcranio/knights-adventure/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/kamalcranio/knights-adventure/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
         <h1>Knights Adventure</h1>
 
 <h1>Download</h1>
@@ -60,13 +67,13 @@ lua5.0.1 Ubuntu-generic1
 <pre><code>apt-get install lua5.2
 </code></pre>
 
-<p>Siga o que o programa diz, então, depois do pacote <em>lua</em> instalado, execute o programa unixinstall.sh, o programa vai instalar e configurar o Knight Adventures. Depois disso, execute o programa unixlauncher.sh
+<p>Siga o que o programa diz, então, depois do pacote <em>lua</em> instalado, execute o arquivo knights.lua. Caso não funcione, execute o programa unixinstall.sh, o programa vai instalar e configurar o Knight Adventures. Depois disso, execute o programa unixlauncher.sh
 Se tudo correr bem , depois disso você poderá executar o jogo tranquilamente.
 Entretanto, caso você esteja usando</p>
 
 <h2>Windows</h2>
 
-<p>Será necessário que você tenha o <a href="http://code.google.com/p/luaforwindows/">LuaForWindows</a> instalado no computador. Assim que instalado, extraia e execute o programa makeInstall.bat. Depois que o programa for instalado, execute o programa w32launcher.bat. Se tudo estiver correto, o jogo deverá funcionar corretamente.</p>
+<p>Será necessário que você tenha o <a href="http://code.google.com/p/luaforwindows/">LuaForWindows</a> instalado no computador. Assim que instalado, extraia e execute o arquivo knightswin32.lua. O jogo deverá funcionar corretamente.</p>
 
 <h3>Copyright</h3>
 
@@ -90,16 +97,9 @@ Entretanto, caso você esteja usando</p>
 
 <p>O SOFTWARE É FORNECIDO SEM GARANTIA DE QUALQUER FORMA, EXPLÍCITA OU IMPLÍCITA, LIMITADO APENAS ÀS GARANTIAS DE MERCADO, RE-FORMAÇÃO PARA ALGUM PROPÓSITO EM PARTICULAR E NÃO INFRIGIMENTO. EM NENHUM MOMENTO OS AUTORES OU DONOS DOS DIREITOS DO SOFTWARE DEVEM SER PUNIDOS POR QUALQUER CULPA, DANOS OU OUTRAS RAZÕES DECORRENTES DO SOFTWARE DESCRITO.</p>
       </section>
-    </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Knights-adventure maintained by <a href="https://github.com/kamalcranio">kamalcranio</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
     </div>
-
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
               <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -110,7 +110,6 @@ Entretanto, caso você esteja usando</p>
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
 
   </body>
 </html>
