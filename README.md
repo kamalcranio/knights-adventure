@@ -33,7 +33,7 @@ make the game even better :)
 All the people, brazilians or foreigners, who want to help with the project, go to http://www.kamalcranio.wordpress.com, 
 or send me an e-mail (kamalcranio@gmail.com), give the project a star and collaborate!
 At this moment, we need:
-+ Programmers (Who knows the LUA language, or wants to learn it.)
++ Programmers (Who knows the LUA language, or those who wanna learn it.)
 + Game-testers
 
 I hope you keep with us!
