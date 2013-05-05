@@ -24,7 +24,8 @@ Caso você esteja usando:
 
 -LINUX
 Ainda não testei a versão 0.0.7a no linux, mas creio que você deve dar permissão e executar
-o arquivo knights.lua
+o arquivo knights.lua. Caso não dê certo, dê permissão e execute o arquivo unixInstall.sh.
+Para executar, então, dê premissão e execute o arquivo unixLauncher.sh
 
 - WINDOWS:
 Execute o arquivo knightswin32.lua
