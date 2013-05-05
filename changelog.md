@@ -1,4 +1,4 @@
--------------------------------------
+﻿-------------------------------------
 HISTÓRICO DE UPDATES (By Kamalcranio)
 -------------------------------------
 -0.0.2a
@@ -42,3 +42,8 @@ Cada tipo reage de forma diferente à cada ataque.
 + Bugfixes:
 	+ Glitch do sistema aleatório para escolha dos monstros resolvido. Agora a KCRGE vai iniciar e iniciar um trash load antes do jogo iniciar
 	+ Erro no comunicado de vida do inimigo
+
+-0.0.7a
++ Melhorias:
+	+ Melhoria no M.A.S (Memory Allocation System)
+	+ Melhoria na organização dos arquivos
