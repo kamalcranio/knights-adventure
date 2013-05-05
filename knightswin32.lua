@@ -19,7 +19,7 @@ end
 
 function engineStartUp() -- FUNÇÃO DE INÍCIO
 screenClear = "cls" -- CLS para win32/64 e CLEAR para unix
-version = "0.0.6a"
+version = "0.0.7pr-a M513"
 title = "The knights adventure " .. version .. " - By Kamalcranio"
 SuaVida = 3000
 VidaInimigo = 3000
