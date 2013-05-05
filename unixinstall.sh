@@ -1,4 +1,4 @@
-#!/bin/bash
+﻿#!/bin/bash
 # knights-adventure Linux easy-way compiler
 # A permissão é garantida, livre de custo, para qualquer pessoa que obtenha uma cópia deste software e os
 # documentos associados ao mesmo (o "Software"), com o poder de usar, modificar, retirar partes do
@@ -11,7 +11,7 @@
 # DE MERCADO, RE-FORMAÇÃO PARA ALGUM PROPÓSITO EM PARTICULAR E NÃO INFRIGIMENTO. EM NENHUM MOMENTO OS AUTORES
 # OU DONOS DOS DIREITOS DO SOFTWARE DEVEM SER PUNIDOS POR QUALQUER CULPA, DANOS OU OUTRAS RAZÕES DECORRENTES
 # DO SOFTWARE DESCRITO.
-ver="0.0.6a"
+ver="0.0.7pr-a"
 file="knights"
 luaver="5.2"
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+﻿#!/bin/bash
 # knights-adventure Linux launcher
 # A permissão é garantida, livre de custo, para qualquer pessoa que obtenha uma cópia deste software e os documentos
 # associados ao mesmo (o "Software"), com o poder de usar, modificar, retirar partes do código para
@@ -12,7 +12,7 @@
 # DONOS DOS DIREITOS DO SOFTWARE DEVEM SER PUNIDOS POR QUALQUER CULPA, DANOS OU OUTRAS RAZÕES DECORRENTES DO
 # SOFTWARE DESCRITO.
 
-ver=0.0.6a
+ver=0.0.7pr-a
 inicio() {
 echo "---------------------------------------------------------------------"
 echo "Knights adventure 0.0.3a LAUNCHER 0.1"
