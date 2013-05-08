@@ -10,12 +10,10 @@
 -- MERCADO, RE-FORMAÇÃO PARA ALGUM PROPÓSITO EM PARTICULAR E NÃO INFRIGIMENTO. EM NENHUM MOMENTO OS AUTORES OU
 -- DONOS DOS DIREITOS DO SOFTWARE DEVEM SER PUNIDOS POR QUALQUER CULPA, DANOS OU OUTRAS RAZÕES DECORRENTES DO
 -- SOFTWARE DESCRITO.
+require(ka_commands)
+require(inventoryStuff/main)
 
 do
-function tempoEspera(i)
-local tempoFinal = os.time() + i
-while os.time() <= tempoFinal do end
-end
 
 function engineStartUp() -- FUNÇÃO DE INÍCIO
 screenClear = "cls" -- CLS para win32/64 e CLEAR para unix
