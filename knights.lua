@@ -96,9 +96,8 @@ function battle_menu()
   elseif try_counter == true then
     try_counter = false
   end
-  print("Enemy type: " .. enemy_type .. " - Turn: " .. turn)
-  print("Your HP: " .. your_hp .. " - Your mana: " .. your_mana)
-  print("Enemy HP: " .. enemy_hp)
+  -- The show stats function is on the commands file, it makes easier to see the stats even when in other menus.
+  showStats()
   print("What are you going to do?")
   print("A - Attack")
   print("S - Spell")
@@ -159,6 +158,16 @@ function phisical_attack()
     end
   end
 
-
+function spell_menu()
+  scl()
+  showStats()
+  print("You can use one out of these spells: -")
+  if your_mana < 100 then
+    print("You don't have enough mana to do ANYTHING!")
+  end
+  if your_mana >= cure.mana then
+    print(cure.name .. " - " .. cure.description .. " - " .. cure.mana .. "MP")
+  end
+  if
 opening()
   

@@ -1,5 +1,6 @@
 --[[ Some major commands for the smooth working of the game. ]]--
-version = "0.0.2 Alpha Pre-release"
+version = "0.0.5 Alpha Pre-release"
+require "spells.list"
 -- Just to make sure that the random nimbers will be, in fact, random.
 print (math.randomseed(os.time()))
 print (math.random(100))
@@ -27,4 +28,10 @@ function enemy_choose()
     require "monsters.wood"
     return "wood"
   end
+end
+
+function showStats()
+    print("Enemy type: " .. enemy_type .. " - Turn: " .. turn)
+    print("Your HP: " .. your_hp .. " - Your mana: " .. your_mana)
+    print("Enemy HP: " .. enemy_hp)
 end

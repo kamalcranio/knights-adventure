@@ -1,0 +1,2 @@
+require "lightcure"
+require "lightfire"
