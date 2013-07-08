@@ -1,0 +1,1 @@
+major_config = 'user' enemy_damage_overall = 10 your_damage_overall = 0 

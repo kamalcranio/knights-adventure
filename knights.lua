@@ -1,533 +1,164 @@
--- knights-adventure Linux pre-compiled file
--- A permissão é garantida, livre de custo, para qualquer pessoa que obtenha uma cópia deste software e os documentos
--- associados ao mesmo (o "Software"), com o poder de usar, modificar, retirar partes do código para
---futuros softwares, publicar, distribuir, sublicenciar, e/ou vender cópias do Software, e permitir à indivíduos
--- saber por quem o software está sendo fornecido para tal.
+--[[ Knights adventure remake 0.0.1A.
+Listening to black sabath, everything is better, even more programming XD.
+I dunno, but i think i'll not use any out-of-normal command library on this thing,
+just a matter of time for me to say that. ]]
+require "commands"
+require "userconfig"
+require "battlecommands"
 
--- Os termos acima e os comunicados a seguir deverão se encontrar em qualquer cópia ou parte substancial do Software.
-
--- O SOFTWARE É FORNECIDO SEM GARANTIA DE QUALQUER FORMA, EXPLÍCITA OU IMPLÍCITA, LIMITADO APENAS ÀS GARANTIAS DE
--- MERCADO, RE-FORMAÇÃO PARA ALGUM PROPÓSITO EM PARTICULAR E NÃO INFRIGIMENTO. EM NENHUM MOMENTO OS AUTORES OU
--- DONOS DOS DIREITOS DO SOFTWARE DEVEM SER PUNIDOS POR QUALQUER CULPA, DANOS OU OUTRAS RAZÕES DECORRENTES DO
--- SOFTWARE DESCRITO.
-
-
-do
-function tempoEspera(i)
-local tempoFinal = os.time() + i
-while os.time() <= tempoFinal do end
+function scl()
+	os.execute ("clear")
 end
 
-function engineStartUp() -- FUNÇÃO DE INÍCIO
-screenClear = "clear" -- CLS para win32/64 e CLEAR para unix
-version = "0.0.7pr-a M513"
-title = "The knights adventure " .. version .. " - By Kamalcranio"
-SuaVida = 3000
-VidaInimigo = 3000
-SuaMana = 1000
-local Rodada = 0
-tipoDoInimigo = nil
-print ("KCRG Engine... Starting Up.")
-print (math.randomseed(os.time()))
-print ("KCR Team. Sheffield, England.")
-print ("Configuring number dump...")
-print (math.random(100))
-print (math.random(1000))
-print (math.random(10000))
-tempoEspera(3)
-decideInimigo()
+function opening()
+  scl()
+	print("Kamalcranio (and contribuitors) presents: ")
+	delay(3)
+	print ("KNIGHTS ADVENTURE")
+	print ("		Knights Adventure, version " .. version)
+	print ("------------------------------------------------------------")
+	-- There is a file called userconfig, where the damage configs are.
+	if major_config == 'default' then
+	  print("DAMAGE AND OTHERS OPTIONS ARE ON DEFAULT")
+	  print("CHANGE IT ON THE DIFFICULTY (D) MENU")
+	  enemy_damage_overall = 5
+	  your_damage_overall = 5
+	end
+	io.write ("\n \n \n \n")
+	print("Choose your option: ")
+	print(" S - Start game ")	
+	print(" D - Difficulty ")
+	print(" E - Exit ")
+	io.write("Type your option: ")
+	opening_option = io.read()
+	if opening_option == "s" then
+	  newgame()
+	elseif opening_option == "d" then
+	  options()
+	elseif opening_option == "e" then
+	  os.exit()
+	end
+--[[ Here i am
+	Rock you like a Hurricane
+	ayualyuaaah!
+	Scorpions. Just scorpions]]--
 end
 
-function inicio()
-if VidaInimigo <= 0 then
-vitoria()
-elseif SuaVida <= 0 then
-derrota()
-end
-os.execute(screenClear)
-print ("------------------------------")
-print (title)
-print ("------------------------------")
-print ("Sua vida: " .. SuaVida .. " Sua Mana: " .. SuaMana)
-print ("Vida do inimigo: " .. VidaInimigo)
-print ("------------------------------")
-print ("É a sua vez! Decida qual ataque você usará:")
-print ("e - Espada")
-print ("m - Magia")
-io.output():write("O que você vai usar? ")
-local usar = io.input():read()
-if usar == "e" then
-espada()
-elseif usar == "m" then
-magia()
-elseif usar ~= "e" then
-if usar ~= "m" then
-inicio()
-end
-end
-end
-
-function espada()
-os.execute(screenClear)
-print (title)
-print ("Qual tipo de ataque você fará?")
-print ("e - Enfiar")
-print ("c - Cortar")
-print ("v - Voltar para o início")
-local Espada = io.input():read()
-if Espada == "e" then
-espadaEnfia()
-elseif Espada == "c" then
-espadaCorte()
-elseif Espada == "v" then
-inicio()
-elseif Espada ~= "e" then
-if Espada ~= "c" then
-if Espada ~= "v" then
-espada()
-end
-end
-end
+function options()
+  print("Enemy damage ratio: " .. enemy_damage_overall)
+  print("Your damage: " .. your_damage_overall)
+  print("What do you want to do? ")
+  print(" 1 - Change it ")
+  print(" 2 - Back it up to the default settings")
+  print(" 3 - Head back to the main menu")
+  difficulty_change = io.read()
+  if difficulty_change == "1" then
+    -- Opens the userconfig file, and write that the default configs are now disabled.
+    userconfig = io.open("userconfig.lua", "w+")
+    userconfig:write("major_config = 'user' ")
+    io.write("New enemy damage ratio: ")
+    -- Same thing as the default config, but with different numbers.
+    enemydamage = io.read()
+    userconfig:write("enemy_damage_overall = " .. enemydamage .. " ")
+    io.write("Your new damage ratio: ")
+    yourdamage = io.read()
+    userconfig:write("your_damage_overall = " .. yourdamage .. " ")
+  elseif difficulty_change == "2" then
+    -- Inverse of option 1, no need to explain, right?
+    userconfig = io.open("userconfig.lua", "w+")
+    userconfig:write("major_config = 'default'")
+  elseif difficulty_change == "3" then
+    opening()
+  end    
 end
 
-function magia()
-os.execute(screenClear)
-print (title)
-print ("Qual o tipo de magia você quer usar?")
-print ("heal - recupera até 400HP - Custa 200MP")
-print ("gran heal - Recupera até 600HP - Custa 350MP")
-print ("fire - Ataca com fogo - Custa 300MP")
-print ("plasma - Ataca com eletrcidade - Custa 400MP")
-print ("water strike - Ataca com água - Custa 350MP")
-print ("Digite v para voltar")
-io.output():write("Qual magia você vai usar? ")
-local Magia = io.input():read()
-if Magia == "heal" then
-if SuaMana >= 200 then
-magiaHeal()
-elseif SuaMana < 200 then
-print ("Você não tem mana suficiente para executar essa magia!")
-tempoEspera(3)
-inicio()
-end
-elseif Magia == "gran heal" then
-if SuaMana >= 350 then
-magiaGranHeal()
-elseif SuaMana < 350 then
-print ("Você não tem mana suficiente para executar essa magia!")
-tempoEspera(3)
-inicio()
-end
-elseif Magia == "fire" then
-if SuaMana >= 300 then
-magiaFire()
-elseif SuaMana < 300 then
-print ("Você não tem mana suficiente para executar essa magia!")
-tempoEspera(3)
-inicio()
+function newgame()
+  scl()
+  print("Walking, peacefully...")
+  -- The enemy_choose function is on the commands file, it returns a random type of enemy.
+  enemy_type = enemy_choose()
+  delay(3)
+  print("When a enemy type " .. enemy_type .. " appears!")
+  -- No shit, sherlock!
+  delay(5)
+  enemy_hp = 2950
+  your_hp = 2950
+  your_mana = 1000
+  turn = 0
+  battle_menu()
 end
 
-elseif Magia == "plasma" then
-if SuaMana >= 400 then
-magiaPlasma()
-elseif SuaMana < 400 then
-print ("Você não tem mana suficiente para executar essa magia!")
-tempoEspera(3)
-inicio()
+function battle_menu()
+  scl()
+  -- The if statement below prevents failed counter attack tries getting the new turn bonuses.
+  if try_counter ~= true then
+    newturn()
+  elseif try_counter == true then
+    try_counter = false
+  end
+  print("Enemy type: " .. enemy_type .. " - Turn: " .. turn)
+  print("Your HP: " .. your_hp .. " - Your mana: " .. your_mana)
+  print("Enemy HP: " .. enemy_hp)
+  print("What are you going to do?")
+  print("A - Attack")
+  print("S - Spell")
+  print("D - Defend")
+  if enemy_attack_state == "miss" and your_attack_state == "defended" then
+    counter = true
+    print("C - Counter attack")
+  elseif sword_stuck == true then
+    print("P - Pull sword")
+  end
+  io.write("Your option: ")
+  battle_option = io.read()
+  if battle_option == "a" then
+    phisical_attack()
+  elseif battle_option == "s" then
+    spell_menu()
+  elseif battle_option == "d" then
+    defend()
+  elseif battle_option == "c" and counter == true then
+    counter_attack()
+  elseif battle_option == "c" and counter ~= true then
+    print("You can't counter attack him now!")
+    try_counter = true
+    delay(3)
+    battle_menu()
+  elseif battle_option == "p" and sword_stuck == true then
+    sword_takeout()
+  elseif battle_option == "p" and sword_stuck ~= true then
+    try_counter = true
+    battle_menu()
+  end
+    
+  
 end
 
-elseif Magia == "v" then
-inicio()
-elseif Magia == "water strike" then
-if SuaMana >= 350 then
-magiaWaterStrike()
-elseif SuaMana < 350 then
-print ("Você não tem mana suficiente para executar essa magia!")
-tempoEspera(3)
-inicio()
-end
-elseif Magia ~= "heal" then
-if Magia ~= "gran heal" then
-if Magia ~= "fire" then
-if Magia ~= "plasma" then
-if Magia ~= "v" then
-if Magia ~= "water strike" then
-magia()
-end
-end
-end
-end
-end
-end
-end
+function phisical_attack()
+  scl()
+  print("You go, angry, towards the enemy with your sword...")
+  delay(3)
+  if enemy_type = "fire" then
+    print("The sword goes all the way through the fire monster... He stays there, and you sword is hot.")
+    print("No damage on him...")
+  elseif enemy_type = "water" then
+    print("What was i thinking? The sword simply goes trough the water monster, he's fine.")
+    print("No damage given")
+  elseif enemy_type = "human" then
+    print("The man, scared, got seriously wounded! But he stays calm and looks at you with eyes of angry.")
+    damage_onenemy()
+    print("The enemy loses " .. damage .. "HP!")
+    print("Now he has " .. enemy_HP .. "HP.")
+  elseif enemy_type == "wood" then
+    damage_onenemy()
+    print("The enemy loses " .. damage .. "HP!")
+    print("Now he has " .. enemy_HP .. "HP.")
+    if sword_stuck == true then
+      delay(3)
+      print("And you sword got stuck on the monster's body!")
+    end
+  end
 
-function espadaEnfia()
-os.execute(screenClear)
-if espadaPrendeu == true then
-if espadaPresaTurno >= 3 then
-print ("Você puxou a espada...")
-tempoEspera(2)
-io.output():write(" E a arrancou do inimigo!")
-espadaPrendeu = false
-tempoEspera(3)
-espadaEnfia()
-end
-espadaPresaTurno = espadaPresaTurno + 1
-print ("Você puxou a espada...")
-tempoEspera(2)
-io.output():write(" Mas ela não saiu do lugar!")
-tempoEspera(2)
-ataqueInimigo()
-end
-print ("Você está atacando!")
-tempoEspera(3)
-if variavelInimigo == "agua" then
-danoVoceInimigo = math.random(10, 50)
-elseif variavelInimigo == "fogo" then
-danoVoceInimigo = math.random(3, 20)
-elseif variavelInimigo == "madeira" then
-danoVoceInimigo = math.random(50, 100)
-espadaPresa = math.random(1, 5)
-elseif variavelInimigo == "humano" then
-danoVoceInimigo = math.random(250, 525)
-elseif variavelInimigo == "fantasma" then
-print ("Azar, colega, você não pode acertar um fantasma!")
-tempoEspera(4)
-ataqueInimigo()
-end
-chancesAcerto = math.random(1, 3)
-if chancesAcerto == 3 then
-print ("Você errou!")
-tempoEspera(2)
-ataqueInimigo()
-end
-VidaInimigo = VidaInimigo - danoVoceInimigo
-os.execute(screenClear)
-print ("Você acertou o inimigo e tirou " .. danoVoceInimigo .. "HP de dano!")
-print ("Agora ele possui " .. VidaInimigo .. "HP!")
-if espadaPresa == 5 then
-print ("Mas a sua espada ficou presa! Você não pode usá-la por enquanto!")
-espadaPrendeu = true
-espadaPresaTurno = 0
-end
-tempoEspera(2)
-ataqueInimigo()
-end
 
-function magiaWaterStrike()
-os.execute(screenClear)
-print ("Você está atacando com a magia!")
-tempoEspera(3)
-SuaMana = SuaMana - 350
-if variavelInimigo == "agua" then
-danoVoceInimigo = math.random(-500, -200)
-VidaInimigo = VidaInimigo - danoVoceInimigo
-print ("Você aumentou a vida dele!")
-print ("Agora ele possui " .. VidaInimigo .. "HP!")
-tempoEspera(4)
-ataqueInimigo()
-elseif variavelInimigo == "fogo" then
-danoVoceInimigo = math.random(400, 750)
-elseif variavelInimigo == "madeira" then
-danoVoceInimigo = math.random(50, 150)
-elseif variavelInimigo == "humano" then
-danoVoceInimigo = math.random(100, 275)
-elseif variavelInimigo == "fantasma" then
-danoVoceInimigo = math.random(40, 200)
-end
-print ("Você acertou o inimigo e tirou " .. danoVoceInimigo .. "HP dele!")
-print ("Agora ele possui " .. VidaInimigo .. "HP!")
-tempoEspera(3)
-ataqueInimigo()
-end
-
-function espadaCorte()
-os.execute(screenClear)
-if espadaPrendeu == true then
-if espadaPresaTurno >= 3 then
-print ("Você puxou a espada...")
-tempoEspera(2)
-io.output():write(" E a arrancou do inimigo!")
-espadaPrendeu = false
-tempoEspera(3)
-espadaEnfia()
-end
-espadaPresaTurno = espadaPresaTurno + 1
-print ("Você puxou a espada...")
-tempoEspera(2)
-io.output():write(" Mas ela não saiu do lugar!")
-tempoEspera(2)
-ataqueInimigo()
-end
-print ("Você está atacando!")
-tempoEspera(3)
-if variavelInimigo == "agua" then
-danoVoceInimigo = math.random(30, 80)
-elseif variavelInimigo == "fogo" then
-danoVoceInimigo = math.random(0, 10)
-elseif variavelInimigo == "madeira" then
-danoVoceInimigo = math.random(100, 200)
-espadaPresa = math.random(1, 10)
-elseif variavelInimigo == "humano" then
-danoVoceInimigo = math.random(150, 450)
-elseif variavelInimigo == "fantasma" then
-print ("Azar, colega, você não pode acertar um fantasma!")
-tempoEspera(4)
-ataqueInimigo()
-end
-chancesAcerto = math.random(1, 100)
-if chancesAcerto >= 88 then
-print ("Você errou!")
-tempoEspera(2)
-ataqueInimigo()
-end
-VidaInimigo = VidaInimigo - danoVoceInimigo
-os.execute(screenClear)
-print ("Você acertou o inimigo e tirou " .. danoVoceInimigo .. "HP de dano!")
-print ("Agora ele possui " .. VidaInimigo .. "HP!")
-if espadaPresa == 10 then
-print ("Mas a sua espada ficou presa! Você não pode usá-la por enquanto!")
-espadaPrendeu = true
-espadaPresaTurno = 0
-end
-tempoEspera(2)
-ataqueInimigo()
-end
-
-function magiaHeal()
-os.execute(screenClear)
-print ("Você está fazendo a magia!")
-tempoEspera(3)
-SuaMana = SuaMana - 200
-vidaRecuperada = math.random(200, 400)
-SuaVida = SuaVida + vidaRecuperada
-os.execute(screenClear)
-print ("Você recuperou " .. vidaRecuperada .. "HP!")
-print ("Você possui " .. SuaVida .. "HP agora.")
-tempoEspera(2)
-ataqueInimigo()
-end
-
-function magiaGranHeal()
-os.execute(screenClear)
-print ("Você está fazendo a magia!")
-tempoEspera(3)
-SuaMana = SuaMana - 350
-vidaRecuperada = math.random(400, 600)
-SuaVida = SuaVida + vidaRecuperada
-os.execute(screenClear)
-print ("Você recuperou " .. vidaRecuperada .. "HP!")
-print ("Você possui " .. SuaVida .. "HP agora.")
-tempoEspera(2)
-ataqueInimigo()
-end
-
-function magiaFire()
-os.execute(screenClear)
-print ("Você está atancando com a magia!")
-tempoEspera(3)
-SuaMana = SuaMana - 300
-if variavelInimigo == "agua" then
-danoVoceInimigo = math.random(0, 5)
-elseif variavelInimigo == "fogo" then
-danoVoceInimigo = math.random(-500, -200)
-VidaInimigo = VidaInimigo - danoVoceInimigo
-print ("Você aumentou a vida dele!")
-print ("Agora ele possui " .. VidaInimigo .. "HP!")
-tempoEspera(4)
-ataqueInimigo()
-elseif variavelInimigo == "madeira" then
-danoVoceInimigo = math.random(300, 600)
-elseif variavelInimigo == "humano" then
-danoVoceInimigo = math.random(200, 350)
-elseif variavelInimigo == "fantasma" then
-danoVoceInimigo = math.random(150, 400)
-end
-VidaInimigo = VidaInimigo - danoVoceInimigo
-os.execute(screenClear)
-print ("Você tirou " .. danoVoceInimigo .. "HP de dano!")
-print ("Agora ele possui " .. VidaInimigo .. "HP de vida!")
-tempoEspera(2)
-ataqueInimigo()
-end
-
-function magiaPlasma()
-os.execute(screenClear)
-print ("Você está fazendo a magia!")
-tempoEspera(3)
-SuaMana = SuaMana - 400
-if variavelInimigo == "agua" then
-danoVoceInimigo = math.random(300, 600)
-eletrificaAgua = math.random(1, 5)
-elseif variavelInimigo == "fogo" then
-danoVoceInimigo = 0
-elseif variavelInimigo == "madeira" then
-danoVoceInimigo = math.random(100, 150)
-elseif variavelInimigo == "humano" then
-danoVoceInimigo = math.random(300, 500)
-paralisaTF = math.random(1, 4)
-elseif variavelInimigo == "fantasma" then
-danoVoceInimigo = math.random(200, 300)
-end
-VidaInimigo = VidaInimigo - danoVoceInimigo
-os.execute(screenClear)
-print ("Você tirou " .. danoVoceInimigo .. "HP de dano!")
-print ("Agora ele possui " .. VidaInimigo .. "HP de vida!")
-tempoEspera(2)
-if paralisaTF == 4 then
-rodadasParalisadas = 0
-print ("O inimigo está paralisado com a eletrecidade!")
-inimigoParalisado = true
-end
-tempoEspera(2)
-ataqueInimigo()
-end
-
-function ataqueInimigo()
-if VidaInimigo <= 0 then
-vitoria()
-end
-os.execute(screenClear)
-if inimigoParalisado then
-if rodadasParalisadas <= 0 then
-rodadasParalisadas = rodadasParalisadas + 1
-print ("O inimigo não pode se mover... Está paralisado!")
-tempoEspera(2)
-turno()
-end
-end
-local qualAtaque = math.random(1, 3)
-if qualAtaque == 3 then
-if magiaUsou == true then
-inimigoFisico()
-else
-inimigoMagia()
-end
-else
-inimigoFisico()
-end
-end
-
-function inimigoFisico()
-inimigoDano = math.random(150, 500)
-SuaVida = SuaVida - inimigoDano
-os.execute(screenClear)
-print ("Seu inimigo te atacou! Ele tirou " .. inimigoDano .. "HP de dano!")
-print ("Você agora possui " .. SuaVida .. "HP de vida!")
-tempoEspera(2)
-turno()
-end
-
-function inimigoMagia()
-os.execute(screenClear)
-magiaInimigo = math.random(0, 2)
-if magiaInimigo == 0 then
-os.execute(screenClear)
-print ("O inimigo está recuperando a própria vida!")
-tempoEspera(2)
-InimigoRecuperou = math.random(200, 300)
-VidaInimigo = VidaInimigo + InimigoRecuperou
-print ("O inimigo recuperou " .. InimigoRecuperou .. "HP!")
-print ("Agora ele possui " .. VidaInimigo .. "HP!")
-else
-os.execute(screenClear)
-print ("O inimigo está fazendo uma magia!")
-tempoEspera(2)
-inimigoDano = math.random(150, 250)
-SuaVida = SuaVida - inimigoDano
-os.execute(screenClear)
-print ("O inimigo tirou " .. inimigoDano .. "HP de você!")
-print ("Você agora tem " .. SuaVida .. "HP!")
-end
-tempoEspera(2)
-turno()
-end
-
-function turno()
-SuaMana = SuaMana + 75
-inicio()
-end
-
-function vitoria()
-os.execute(screenClear)
-print (title)
-print ("----------------------------------")
-print ("VOCÊ VENCEU!")
-print ("Status:")
-print (SuaVida .. "HP" .. " - " .. SuaMana .. "MP")
-tempoEspera(5)
-print ("Créditos:")
-print ("Código: Kamalcranio")
-print ("----------------------------------")
-print ("Digite S para jogar novamente, ou digite N para sair")
-novamente = io.input():read()
-if novamente == "s" then
-engineStartUp()
-elseif novamente == "n" then
-os.exit()
-end
-os.exit()
-end
-
-function derrota()
-os.execute(screenClear)
-print (title)
-print ("-----------------------------------")
-print (title)
-print ("-----------------------------------")
-print ("VOCÊ PERDEU!")
-print ("Situação do inimigo: " .. VidaInimigo)
-tempoEspera(5)
-print ("Créditos:")
-print ("Código: Kamalcranio")
-print ("-----------------------------------")
-print ("Digite S para jogar novamente, ou digite N para sair")
-novamente = io.input():read()
-if novamente == "s" then
-engineStartUp()
-elseif novamente == "n" then
-os.exit()
-end
-os.exit()
-end
-
-function decideInimigo()
-os.execute(screenClear)
-print (title)
-tipoDoInimigo = nil
-print ("Andando, tranquilamente... quando")
-print ("VOOOOOOSH!")
-local tipoDoInimigo = math.random(1, 4)
-if tipoDoInimigo == 2 then
-variavelInimigo = "agua"
-NomeInimigo = "água"
-printInimigo()
-elseif tipoDoInimigo == 4 then
-variavelInimigo = "fogo"
-NomeInimigo = "fogo"
-printInimigo()
-elseif tipoDoInimigo <= 3 then
-variavelInimigo = "madeira"
-NomeInimigo = "madeira"
-printInimigo()
-elseif tipoDoInimigo <= 1 then
-variavelInimigo = "humano"
-NomeInimigo = "humano"
-printInimigo()
-end
-if NomeInimigo == nil then
-decideInimigo()
-end
-printInimigo()
-end
-
-function printInimigo()
-print ("Um inimigo tipo " .. NomeInimigo .. " apareceu!")
-tempoEspera(3)
-print ("Aperte ENTER para começar a batalha!")
-io.input():read()
-inicio()
-end
-
-engineStartUp()
-end
+opening()
+  
