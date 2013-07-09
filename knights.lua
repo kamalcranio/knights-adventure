@@ -137,13 +137,13 @@ function phisical_attack()
   scl()
   print("You go, angry, towards the enemy with your sword...")
   delay(3)
-  if enemy_type = "fire" then
+  if enemy_type == "fire" then
     print("The sword goes all the way through the fire monster... He stays there, and you sword is hot.")
     print("No damage on him...")
-  elseif enemy_type = "water" then
+  elseif enemy_type == "water" then
     print("What was i thinking? The sword simply goes trough the water monster, he's fine.")
     print("No damage given")
-  elseif enemy_type = "human" then
+  elseif enemy_type == "human" then
     print("The man, scared, got seriously wounded! But he stays calm and looks at you with eyes of angry.")
     damage_onenemy()
     print("The enemy loses " .. damage .. "HP!")
@@ -157,6 +157,7 @@ function phisical_attack()
       print("And you sword got stuck on the monster's body!")
     end
   end
+end
 
 function spell_menu()
   scl()
@@ -166,8 +167,18 @@ function spell_menu()
     print("You don't have enough mana to do ANYTHING!")
   end
   if your_mana >= cure.mana then
-    print(cure.name .. " - " .. cure.description .. " - " .. cure.mana .. "MP")
+    print("1 - " .. cure.name .. " - " .. cure.description .. " - " .. cure.mana .. "MP")
   end
-  if
+  if your_mana >=  lightfire.mana then
+    print("2 - " .. lightfire.name .. " - " .. lightfire.description .. " - " .. lightfire.mana .. "MP")
+  end
+  io.write("Your option? ")
+  spell_option = io.read()
+  if spell_option == "1" and your_mana >= cure.mana then
+    cure.spell()
+  elseif spell_option == "2" and your_mana >= lightfire.mana then
+    lightfire.spell()
+  end
+end
 opening()
   

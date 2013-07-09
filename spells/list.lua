@@ -1,2 +1,2 @@
-require "lightcure"
-require "lightfire"
+require "spells.lightcure"
+require "spells.lightfire"

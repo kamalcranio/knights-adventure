@@ -1,5 +1,5 @@
 --[[ Some major commands for the smooth working of the game. ]]--
-version = "0.0.5 Alpha Pre-release"
+version = "0.0.6 Alpha Pre-release"
 require "spells.list"
 -- Just to make sure that the random nimbers will be, in fact, random.
 print (math.randomseed(os.time()))
@@ -7,8 +7,8 @@ print (math.random(100))
 print (math.random(1000))
 print (math.random(10000))
 function delay(t)
-	f = os.time() + t
-	while os.time() < f do end
+--	f = os.time() + t
+--	while os.time() < f do end
 end
 
 function enemy_choose()

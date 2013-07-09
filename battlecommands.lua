@@ -14,11 +14,11 @@ function newturn()
 end
 
 function damage_onenemy()
-  if enemy_type = "human" then
+  if enemy_type == "human" then
     damage_multiplier = math.random(1, 100)
     damage = damage_multiplier * your_damage_overall
     enemy_hp = enemy_hp - damage
-  elseif enemy_type = "wood" then
+  elseif enemy_type == "wood" then
     damage_multiplier = math.random(1, 20)
     damage = damage_multiplier * your_damage_overall
     enemy_hp = enemy_hp - damage
