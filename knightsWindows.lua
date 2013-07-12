@@ -8,7 +8,7 @@ require "battlecommands"
 
 
 function scl()
-	os.execute ("clear")
+	os.execute ("cls")
 end
 
 function opening()

@@ -9,4 +9,7 @@ spell = function()
   hp_recovered = math.random(25, 250)
   your_hp = your_hp + hp_recovered
   print("You recovered " .. hp_recovered .. "HP! Now you have " .. your_hp .. "HP.")
-  end}
+  delay(4)
+  enemyTurn()
+  end
+}

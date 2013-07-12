@@ -1,8 +1,13 @@
 function newturn()
+  scl()
   turn = turn + 1
   your_hp = your_hp + 50
   enemy_hp = enemy_hp + 50
   your_mana = your_mana + 100
+  if screwd == true then
+    print("You can't do anything now, you are terribly wounded by the attack of the enemy")
+    delay(5)
+  end
   if your_mana > 1000 then
     your_mana = 1000
   end
@@ -11,6 +16,8 @@ function newturn()
   elseif enemy_hp <= 0 then
     youwin()
   end
+  try_counter = true
+  battle_menu()
 end
 
 function damage_onenemy()
@@ -61,4 +68,14 @@ function youwin()
   print("Press enter to go to the main menu")
   continue = io.read()
   opening()
+end
+
+function enemyTurn()
+  scl()
+  attack = math.random(1, 2)
+  if attack == 1 then
+    monster.attack1()
+  else
+    monster.attack2()
+  end
 end

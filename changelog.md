@@ -1,16 +1,11 @@
 KNIGHTS ADVENTRE MAIN CHANGELOG
-<<<<<<< HEAD
 --- 0.0.2Alpha:
-=======
-- 0.0.2Alpha:
->>>>>>> 491bcc7b5382a9c4cd08f7e16eaf1a329f6d9b56
 	+ Difficulty change options added.
 
 --- 0.0.4Alpha
 	+ Spells
 	+ Monsters
 	+ Basic Attacks
-<<<<<<< HEAD
 
 --- 0.0.6Alpha
 	- Spell menu, useless and non-working spells deleted to further addition
@@ -23,5 +18,11 @@ KNIGHTS ADVENTRE MAIN CHANGELOG
 	  Working spells and monsters.
 	  Enemy turn function (for 0.0.7 or 0.1 alpha, impossible to be later.)
 	  
-=======
->>>>>>> 491bcc7b5382a9c4cd08f7e16eaf1a329f6d9b56
+--- 0.1Alpha
+	+ FIRST RELEASE OF THE NEW KNIGHTS ADVENTURE!
+	+ Playable, worthless, logicless, but playable
+	+ Fire monster complete (at least, for this version)
+	+Enemyturn() function, now you can attack and get attacked!
+	TODO:
+	  Working spells and monsters (0.2Alpha, probably)
+	  A better windows version
