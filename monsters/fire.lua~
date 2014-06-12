@@ -5,7 +5,6 @@ monster = {
   attack1 = function()
     scl()
     print("The monster starts to inflate itself, it almost blows up!")
-    delay(4)
     print("Unfortunately, it didn't blow up, and now he is deflating... On a fire wave going in your direction!")
     damage_multiplier = math.random(1, 100)
     damage_given = damage_multiplier * enemy_damage_overall

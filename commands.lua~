@@ -1,6 +1,6 @@
 --[[ Some major commands for the smooth working of the game. ]]--
 colors = require "ansicolors"
-version = colors.onblue .. colors.white .. "0.1.2 Alpha Pre-release" .. colors.reset
+version = colors.onblue .. colors.white .. "0.1 Alpha Pre-release" .. colors.reset
 require "spells.list"
 -- Just to make sure that the random nimbers will be, in fact, random.
 print (math.randomseed(os.time()))
