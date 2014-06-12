@@ -116,6 +116,10 @@ function battle_menu()
   end
   io.write("Your option: ")
   battle_option = io.read()
+  if battle_option == "exitnow" then 
+    print("OUT CODE 1")
+    os.exit()
+    end
   if battle_option == "a" then
     phisical_attack()
   elseif battle_option == "s" then
@@ -138,6 +142,7 @@ function battle_menu()
     try_counter = true
     battle_menu()
   end
+  
   
 end
 
@@ -185,12 +190,17 @@ function spell_menu()
   if your_mana >=  lightfire.mana then
     print("2 - " .. lightfire.name .. " - " .. lightfire.description .. " - " .. lightfire.mana .. "MP")
   end
+  print("B - Back to the main menu")
   io.write("Your option? ")
   spell_option = io.read()
   if spell_option == "1" and your_mana >= cure.mana then
     cure.spell()
   elseif spell_option == "2" and your_mana >= lightfire.mana then
     lightfire.spell()
+  elseif spell_option == "b" or spell_option == "B" then
+    firstround = true
+    -- The simplest workaround to avoid getting back from the menu and getting the health/mana bonuses.
+    battle_menu()
   end
   spell_menu()
 end
