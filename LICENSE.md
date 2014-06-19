@@ -15,11 +15,11 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-Por parte de Kamalcranio (Sheffield, Inglaterra)
+Por parte de Kamalcranio (Curitiba)
 
 A licença sobre cópia, modificação e outros está sob os termos da Creative Commons, enquanto que o termo sobre o software está sob os termos MIT da OSI (Open Source Initiative):
 
-Copyright © 2012 KCR, Sheffield - Inglaterra
+Copyright © 2012 KCR, Curitiba
 
 A permissão é garantida, livre de custo, para qualquer pessoa que obtenha uma cópia deste software e os documentos associados ao mesmo (o "Software"), com o poder de usar, modificar, retirar partes do código para futuros softwares, publicar, distribuir, sublicenciar, e/ou vender cópias do Software, e permitir à indivíduos por quem o software está sendo fornecido para tal.
 
