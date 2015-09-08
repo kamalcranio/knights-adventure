@@ -36,7 +36,7 @@ At this moment, we need:
 + Programmers (Who knows the LUA language, or those who wanna learn it.)
 + Game-testers
 
-I hope you keep with us!
+I hope you stay with us!
 
 --------------------------------------------------------------------------------------
 ------------------------------------ COPYRIGHT ---------------------------------------
