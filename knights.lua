@@ -159,7 +159,7 @@ function phisical_attack()
     print("No damage given")
     enemyTurn()
   elseif enemy_type == "human" then
-    print("The man, scared, got seriously wounded! But he stays calm and looks at you with eyes of angry.")
+    print("The man, scared, got seriously wounded! But he stays calm and looks at you with eyes of anger.")
     damage_onenemy()
     print("The enemy loses " .. damage .. "HP!")
     print("Now he has " .. enemy_HP .. "HP.")
