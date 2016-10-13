@@ -6,7 +6,7 @@ monster = {
     scl()
     print("The monster starts to inflate itself, it almost blows up!")
     delay(4)
-    print("Unfortunately, it didn't blow up, and now he is deflating... On a fire wave going in your direction!")
+    print("Fortunately, it didn't blow up, and now he is deflating... On a fire wave going in your direction!")
     damage_multiplier = math.random(1, 100)
     damage_given = damage_multiplier * enemy_damage_overall
     your_hp = your_hp - damage_given
@@ -37,7 +37,7 @@ monster = {
 	delay(3)
 	newturn()
       elseif blow == 2 and charged == 2 then
-	print("The enemy blows up in a huge fire wave! Everything got a intense burning...")
+	print("The enemy blows up in a huge fire wave! Everything got burned intensely...")
 	damage_multiplier = math.random(1, 200)
 	damage_given = damage_multiplier * enemy_damage_overall
 	your_hp = your_hp - damage_given
@@ -46,7 +46,7 @@ monster = {
 	newturn()
       elseif blow == 2 and charged >= 3 then
 	print ("When the enemy starts to glow, he decides to blow up in a enormous, imense, fire attack.")
-	print ("You got burned in all your body parts. It probably isn't good, is it?")
+	print ("You got your hole body burned. That oughta not be good.")
 	damage_multiplier = math.random(1, 700)
 	-- Yep, 700, and don't you dare change this number. (Even though i think that i'll make it even bigger.)
 	damage_given = damage_multiplier * enemy_damage_overall
